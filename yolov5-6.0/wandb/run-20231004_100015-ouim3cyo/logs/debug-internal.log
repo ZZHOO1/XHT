@@ -1,0 +1,80 @@
+2023-10-04 10:00:15,507 INFO    StreamThr :5648 [internal.py:wandb_internal():86] W&B internal server running at pid: 5648, started at: 2023-10-04 10:00:15.507663
+2023-10-04 10:00:15,508 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: status
+2023-10-04 10:00:15,509 INFO    WriterThread:5648 [datastore.py:open_for_write():85] open: C:\Users\Administrator\Desktop\yolov5-6.0\wandb\run-20231004_100015-ouim3cyo\run-ouim3cyo.wandb
+2023-10-04 10:00:15,512 DEBUG   SenderThread:5648 [sender.py:send():369] send: header
+2023-10-04 10:00:15,512 DEBUG   SenderThread:5648 [sender.py:send():369] send: run
+2023-10-04 10:00:15,519 INFO    SenderThread:5648 [sender.py:_maybe_setup_resume():737] checking resume status for None/train/ouim3cyo
+2023-10-04 10:00:18,658 INFO    SenderThread:5648 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 700, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 996, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\urllib3\connection.py", line 369, in connect
+    self.sock = conn = self._connect_tls_proxy(hostname, conn)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\urllib3\connection.py", line 504, in _connect_tls_proxy
+    socket = ssl_wrap_socket(
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\urllib3\util\ssl_.py", line 453, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\urllib3\util\ssl_.py", line 495, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\requests\adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\wandb\sdk\lib\retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\wandb\sdk\internal\internal_api.py", line 320, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\wandb\sdk\lib\gql_request.py", line 55, in execute
+    request = self.session.post(self.url, **post_args)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\requests\sessions.py", line 635, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Administrator\anaconda3\envs\yolo\lib\site-packages\requests\adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1131)')))
+2023-10-04 10:00:20,569 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:00:25,606 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:00:30,637 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:00:35,673 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:00:40,708 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:00:45,742 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:00:50,784 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:00:55,850 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:01:00,899 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:01:05,940 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:01:10,976 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: keepalive
+2023-10-04 10:01:16,014 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: cancel
+2023-10-04 10:01:16,014 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: cancel
+2023-10-04 10:01:16,014 DEBUG   SenderThread:5648 [sender.py:send():378] Record cancelled: run
+2023-10-04 10:01:16,014 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: status_report
+2023-10-04 10:01:16,078 DEBUG   HandlerThread:5648 [handler.py:handle_request():144] handle_request: shutdown
+2023-10-04 10:01:16,078 INFO    HandlerThread:5648 [handler.py:finish():854] shutting down handler
+2023-10-04 10:01:17,023 INFO    WriterThread:5648 [datastore.py:close():298] close: C:\Users\Administrator\Desktop\yolov5-6.0\wandb\run-20231004_100015-ouim3cyo\run-ouim3cyo.wandb
+2023-10-04 10:01:17,023 INFO    SenderThread:5648 [sender.py:finish():1526] shutting down sender
